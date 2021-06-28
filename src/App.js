@@ -8,14 +8,20 @@ const App = () => {
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
-    const fetchTasks = async () => {
-      const res = await fetch ('http://localhost:5000/tasks')
-      const data = await res.jason()
-
-      console.log(data)
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
     }
-    fetchTasks()
-  }), [])
+    getTasks()
+  }, [])
+
+  // fetch tasks
+  const fetchTasks = async () => {
+    const res = await fetch ('http://localhost:5000/tasks')
+    const data = await res.jason()
+
+    return data
+  }
 
   // Add task
   const addTask = (task) => {
