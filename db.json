@@ -11,6 +11,12 @@
       "day": "friday",
       "reminder": false,
       "id": 5
+    },
+    {
+      "text": "Test this out",
+      "day": "today",
+      "reminder": true,
+      "id": 6
     }
   ]
 }
